@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //no permitir que se pueda presionar el boton mientras hace la peticion
   public login(event:Event){
     event.preventDefault;
     if(this.form.valid){

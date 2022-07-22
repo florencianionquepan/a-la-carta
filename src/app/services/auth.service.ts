@@ -9,11 +9,9 @@ import {map} from 'rxjs/operators';
 })
 export class AuthService {
   url='http://challenge-react.alkemy.org/';
-  //token:BehaviorSubject<any>;
   token!:string;
 
   constructor(private httpClient: HttpClient) { 
-    //this.token=new BehaviorSubject<any>(JSON.parse(localStorage.getItem('token') || '{}'))
   }
 
   public login(usuario:any):Observable<any>{

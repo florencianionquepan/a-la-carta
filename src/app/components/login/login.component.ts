@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -13,8 +14,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  isLoading=this.spinnerSv.isLoading;
 
-  constructor(private authService:AuthService, private formBuilder: FormBuilder, private ruta:Router) {
+  constructor(private authService:AuthService, private formBuilder: FormBuilder, private ruta:Router, private spinnerSv: SpinnerService) {
     this.form=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required,Validators.minLength(4)]]

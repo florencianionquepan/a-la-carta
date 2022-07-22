@@ -41,9 +41,10 @@
               La contraseña es inválida.
             </p>
           </div> 
-          <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Enviar</button>
+          <button class="w-100 btn btn-lg btn-primary mt-4" type="submit" [disabled]="isLoading | async">Enviar</button>
         </form>
     </div>
+    <app-spinner></app-spinner>
 </body>
 
 </html>

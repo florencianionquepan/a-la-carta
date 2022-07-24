@@ -9,13 +9,21 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SpinnerInterceptor } from './services/spinner.interceptor';
+import { SearcherComponent } from './components/searcher/searcher.component';
+import { NameComponent } from './components/name/name.component';
+import { ImageComponent } from './components/image/image.component';
+import { DescriptionComponent } from './components/description/description.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    SearcherComponent,
+    NameComponent,
+    ImageComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,

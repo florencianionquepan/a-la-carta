@@ -1,19 +1,20 @@
 <div class="container-fluid align-items-md-center mt-3">
     <form>
         <div class="row align-items-center">
-            <div class="col-sm-10 col-md-8 col-lg-6">
+            <div class="col-sm-10 col-md-8">
                 <input type="text" name="plato" class="form-control" 
-                placeholder="Pasta...or pizza..." (keyup)="search.next($event)">
+                placeholder="Search by food name..." (keyup)="search.next($event)">
             </div>
         </div>
     </form>
         <div class="text-center m-5 rounded">
             <div class="row mb-3 p-3" >
                 <div *ngFor="let plato of resultadoLista" class="col-12 col-sm-6 col-md-4 col-lg-3 mb-2">
-                        <div class="border border-secondary rounded p-2 tarjeta" [id]="plato.id">                            
+                        <div class="border border-secondary rounded p-2 tarjeta" [id]="plato.id">                           
                             <app-name [titulo]="plato.title"></app-name>
                             <app-image [imagen]="plato.image"></app-image>
                             <app-description [caracteristicas]="plato.dishTypes"></app-description>
+                            <h6 *ngIf="plato.vegan">ES VEGANO</h6> 
                             <app-add [idPlato]="plato.id"></app-add>
                         </div>
                 </div>

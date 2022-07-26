@@ -16,7 +16,7 @@ export class SearcherComponent implements OnInit {
     const busqueda=this.search.pipe(
       map((event:any)=>event.target.value),
       filter(text => text.length > 2),
-      debounce(()=>interval(500))
+      debounce(()=>interval(500)),
     ).subscribe({
       next:(text)=>{
         this.obtener(text);

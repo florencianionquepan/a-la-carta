@@ -1,5 +1,14 @@
 <div class="row m-2" style="width:100%">
-    <div class="col-12 border border-secondary rounded">
-        <h5 class="display-6">MENU</h5>
+    <div class="col-12 rounded justify-content-center">
+        <h5 class="display-6 text-center">MENU</h5>
+    </div>
+    <div class="row">
+        <div class="col-6 col-sm-3 col-md-11 mx-auto mb-2 tarjeta border border-secondary rounded p-2" *ngFor="let plato of platosPedidos">
+                <app-name [titulo]="plato.title"></app-name>
+                <app-image [imagen]="plato.image"></app-image>
+                <app-description [caracteristicas]="plato.description"></app-description>
+                <h6 *ngIf="plato.vegan" class="text-center">VEGAN</h6>
+        </div>
+        <div *ngIf="platosPedidos.length==0" class="alert alert-warning" role="alert">You didn't order any, yet!</div>
     </div>
 </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Dish } from '../models/Dish';
 
 @Injectable({
@@ -6,18 +7,30 @@ import { Dish } from '../models/Dish';
 })
 export class MenuService {
 
-  private platos:Dish[];
-  
-  constructor() { 
-    this.platos=[]
+  platos:Dish[];
+  plato:Dish;
+  private actualizarPedidoSubject=new Subject<Dish>();
+  actualizarPedidoObservable=this.actualizarPedidoSubject.asObservable();
+
+  actualizarPedido(plato:Dish){
+    this.plato=plato;
+    this.actualizarPedidoSubject.next(plato);
   }
 
-  getPlatos(){
+  constructor() { 
+    this.platos=[];
+    this.plato={id:1,title:'',image:'',description:'',price:0,preparationMinutes:0,healthScore:0,vegan:true};
+  }
+
+  getPlatos():Dish[]{
     return this.platos;
   }
 
-  agregarPlato(plato: Dish){
+  agregarPlato(plato: Dish):Dish[]{
     this.platos.push(plato);
+    this.actualizarPedido(plato);
+    //localStorage.setItem("platos",JSON.stringify(this.platos));
+    return this.platos;
   }
 
 }

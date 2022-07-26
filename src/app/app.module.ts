@@ -13,6 +13,9 @@ import { SearcherComponent } from './components/searcher/searcher.component';
 import { NameComponent } from './components/name/name.component';
 import { ImageComponent } from './components/image/image.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { AddComponent } from './components/add/add.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { DescriptionComponent } from './components/description/description.compo
     SearcherComponent,
     NameComponent,
     ImageComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    MenuComponent,
+    AddComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

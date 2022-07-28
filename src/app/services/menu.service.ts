@@ -19,7 +19,7 @@ export class MenuService {
 
   constructor() { 
     this.platos=[];
-    this.plato={id:1,title:'',image:'',description:'',price:0,preparationMinutes:0,healthScore:0,vegan:true};
+    this.plato={id:1,title:'',image:'',vegan:false,price:0,preparationMinutes:0,healthScore:0};
   }
 
   getPlatos():Dish[]{

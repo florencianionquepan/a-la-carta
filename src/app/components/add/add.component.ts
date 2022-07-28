@@ -20,7 +20,7 @@ export class AddComponent implements OnInit {
   public mensaje:string;
 
   constructor(private searcherSvc: SearcherService, private menuSvc: MenuService) { 
-    this.platoDetalles={id:1,title:'',image:'',description:'',price:0,preparationMinutes:0,healthScore:0,vegan:true};
+    this.platoDetalles={id:1,title:'',image:'',vegan:false,price:0,preparationMinutes:0,healthScore:0};
     this.platosMenu=this.menuSvc.getPlatos();
     this.agregado=true;
     this.platosVeganos=0;
@@ -36,11 +36,10 @@ export class AddComponent implements OnInit {
         this.platoDetalles.id = data.id;
         this.platoDetalles.title = data.title;
         this.platoDetalles.image = data.image;
-        this.platoDetalles.description = data.dishTypes;
+        this.platoDetalles.vegan = data.vegan;
         this.platoDetalles.price = data.pricePerServing;
         this.platoDetalles.preparationMinutes = data.preparationMinutes;
         this.platoDetalles.healthScore = data.healthScore;
-        this.platoDetalles.vegan = data.vegan;
         //una vez que obtengo plato detalles. llama a seleccionarPlato;
         this.seleccionarPlato(id);
       },

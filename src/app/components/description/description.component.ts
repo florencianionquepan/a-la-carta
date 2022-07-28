@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./description.component.css']
 })
 export class DescriptionComponent implements OnInit {
-  @Input() caracteristicas:string=""
+  @Input() caracteristicas:boolean=false;
   constructor() { }
 
   ngOnInit(): void {

@@ -13,8 +13,7 @@
                         <div class="border border-secondary rounded p-2 tarjeta">                           
                             <app-name [titulo]="plato.title"></app-name>
                             <app-image [imagen]="plato.image"></app-image>
-                            <app-description [caracteristicas]="plato.dishTypes"></app-description>
-                            <h6 *ngIf="plato.vegan">VEGAN</h6> 
+                            <app-description [caracteristicas]="plato.vegan"></app-description>
                             <app-add [idPlato]="plato.id"></app-add>
                         </div>
                 </div>

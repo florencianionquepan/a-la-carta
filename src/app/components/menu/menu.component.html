@@ -7,8 +7,7 @@
             *ngFor="let plato of platosPedidos">
                 <app-name [titulo]="plato.title"></app-name>
                 <app-image [imagen]="plato.image"></app-image>
-                <app-description [caracteristicas]="plato.description"></app-description>
-                <h6 *ngIf="plato.vegan" class="text-center">VEGAN</h6>
+                <app-description [caracteristicas]="plato.vegan"></app-description>
                 <app-actions [plato]="plato" [id]="plato.id"></app-actions>
         </div>
         <div *ngIf="platosPedidos.length==0" class="alert alert-warning" role="alert">You didn't order any, yet!</div>

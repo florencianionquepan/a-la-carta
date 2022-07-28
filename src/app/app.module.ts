@@ -16,6 +16,7 @@ import { DescriptionComponent } from './components/description/description.compo
 import { MenuComponent } from './components/menu/menu.component';
 import { AddComponent } from './components/add/add.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ActionsComponent } from './components/actions/actions.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HeaderComponent } from './components/header/header.component';
     DescriptionComponent,
     MenuComponent,
     AddComponent,
-    HeaderComponent
+    HeaderComponent,
+    ActionsComponent
   ],
   imports: [
     BrowserModule,

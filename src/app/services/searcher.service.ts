@@ -13,7 +13,7 @@ export class SearcherService {
 
   constructor(private http:HttpClient) { }
 
-  public verPlatos(text:string):any{
+  public verPlatos(text:string):Observable<any>{
     return this.http.get<any>(`${this.api}&query=${text}`)
     .pipe(
       map(data=>data.results)

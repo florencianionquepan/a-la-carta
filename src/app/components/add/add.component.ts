@@ -102,6 +102,8 @@ export class AddComponent implements OnInit {
         if(this.platoDetalles.vegan){
           this.agregado=false;
           this.mensaje="The next dish to add to the menu should not be vegan";
+        }else{
+          this.anadirPlato(this.platoDetalles);
         }
       }else if(this.platosVeganos==1){
         //EL PLATO A AÑADIR DEBE SER VEGANO

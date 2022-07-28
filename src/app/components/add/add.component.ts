@@ -21,7 +21,7 @@ export class AddComponent implements OnInit {
 
   constructor(private searcherSvc: SearcherService, private menuSvc: MenuService) { 
     this.platoDetalles={id:1,title:'',image:'',description:'',price:0,preparationMinutes:0,healthScore:0,vegan:true};
-    this.platosMenu=[];
+    this.platosMenu=this.menuSvc.getPlatos();
     this.agregado=true;
     this.platosVeganos=0;
     this.mensaje='This dish was added to the menu';
@@ -53,14 +53,12 @@ export class AddComponent implements OnInit {
   public seleccionarPlato(id:number){ 
     //obtengo todo el listado de platos del menu para controlar que el plato seleccionado pueda ser añadido
     this.platosMenu=this.menuSvc.getPlatos();
-    console.log(this.platosMenu);
     if(this.platosMenu.length<2){
       this.anadirPlato(this.platoDetalles);
     }else if(this.platosMenu.length==4){
       this.agregado=false;
       this.mensaje="It is not possible add it to the menu. You already order 4 dishes";
     }else if(this.platosMenu.length>=2 && this.platosMenu.length<4){
-      console.log('tengo entre dos y 4 platos');
       this.controlarMenu(id);
     }
     Swal.fire(this.mensaje);
@@ -75,7 +73,6 @@ export class AddComponent implements OnInit {
           this.platosVeganos++;
         }
       })
-      console.log(this.platosVeganos);
       if(this.platosVeganos==2){
         //EL PLATO A AÑADIR DEBE SER NO VEGANO
         if(this.platoDetalles.vegan){

@@ -10,7 +10,7 @@
         <div class="text-center m-1 rounded">
             <div class="row mb-3 p-3" >
                 <div *ngFor="let plato of resultadoLista" class="col-6 col-sm-3 col-md-4 col-lg-3 mb-2">
-                        <div class="border border-secondary rounded p-2 tarjeta" [id]="plato.id">                           
+                        <div class="border border-secondary rounded p-2 tarjeta">                           
                             <app-name [titulo]="plato.title"></app-name>
                             <app-image [imagen]="plato.image"></app-image>
                             <app-description [caracteristicas]="plato.dishTypes"></app-description>

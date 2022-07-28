@@ -30,7 +30,7 @@ export class AddComponent implements OnInit {
   ngOnInit(): void { }
 
   public obtenerPlato(id: number) {
-    this.searcherSvc.verDetalles(id).subscribe({
+    this.searcherSvc.obtenerDetalles(id).subscribe({
       next: (data: any) => {
         //console.log(data.id);
         this.platoDetalles.id = data.id;

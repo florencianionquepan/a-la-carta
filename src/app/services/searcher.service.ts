@@ -20,8 +20,8 @@ export class SearcherService {
     )
   }
 
-  public verDetalles(id:number):Observable<any>{
-    return this.http.get<any>(`${this.apiById}/${id}/information?includeNutritition=false&apiKey=69522f583e88451b9475f39a11274b6a`);
+  public obtenerDetalles(id:number):Observable<any>{
+    return this.http.get<any>(`${this.apiById}/${id}/information?includeNutritition=false&apiKey=e0870e67760c42feb29954d3796c0a46`);
   }
 
 }

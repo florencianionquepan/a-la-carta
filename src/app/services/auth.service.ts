@@ -26,6 +26,7 @@ export class AuthService {
 
   public logOut():void{
     localStorage.removeItem('token');
+    localStorage.removeItem('platos');
   }
 
 

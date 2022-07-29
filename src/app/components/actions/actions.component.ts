@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Dish } from 'src/app/models/Dish';
 import { MenuService } from 'src/app/services/menu.service';
 import Swal from 'sweetalert2';
@@ -12,7 +13,7 @@ import Swal from 'sweetalert2';
 export class ActionsComponent implements OnInit {
   @Input() plato:Dish;
 
-  constructor(private menuSvc: MenuService) {
+  constructor(private menuSvc: MenuService, private ruta:Router) {
     this.plato={id:1,title:'',image:'',vegan:false,price:0,preparationMinutes:0,healthScore:0};
   }
 
@@ -20,7 +21,7 @@ export class ActionsComponent implements OnInit {
   }
 
   public verDetalles(plato:Dish){
-
+    this.ruta.navigate([`/detail/${plato.id}`]);
   }
 
 

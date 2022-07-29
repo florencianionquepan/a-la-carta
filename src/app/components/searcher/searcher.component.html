@@ -17,8 +17,8 @@
                             <app-add [idPlato]="plato.id"></app-add>
                         </div>
                 </div>
-                <div *ngIf="resultadoLista.length==0">
-                    <p>No results...</p>
+                <div *ngIf="resultadoLista.length==0 && busqueda">
+                    <h3 class="display-6">No results...</h3>
                 </div>
             </div>
         </div>

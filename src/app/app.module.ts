@@ -17,6 +17,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { AddComponent } from './components/add/add.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ActionsComponent } from './components/actions/actions.component';
+import { DishDetailComponent } from './components/dish-detail/dish-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ActionsComponent } from './components/actions/actions.component';
     MenuComponent,
     AddComponent,
     HeaderComponent,
-    ActionsComponent
+    ActionsComponent,
+    DishDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -9,8 +9,10 @@ export class MenuService {
 
   platos:Dish[];
   plato:Dish;
+  platoVer:Dish;
   private actualizarPedidoSubject=new Subject<Dish[]>();
   actualizarPedidoObservable=this.actualizarPedidoSubject.asObservable();
+
 
   actualizarPedido(platos:Dish[]){
     this.actualizarPedidoSubject.next(platos);
@@ -20,6 +22,7 @@ export class MenuService {
   constructor() { 
     this.platos=[];
     this.plato={id:1,title:'',image:'',vegan:false,price:0,preparationMinutes:0,healthScore:0};
+    this.platoVer={id:1,title:'',image:'',vegan:false,price:0,preparationMinutes:0,healthScore:0};
   }
 
   getPlatos():Dish[]{
@@ -29,6 +32,7 @@ export class MenuService {
 
   agregarPlato(plato: Dish):Dish[]{
     this.platos.push(plato);
+    //console.log(this.platos);
     this.actualizarPedido(this.platos);
     return this.platos;
   }
@@ -43,6 +47,7 @@ export class MenuService {
   }
 
   obtenerStorage():Dish[]{
+    //esta condicion siempre me devuelve true...
     if(localStorage.getItem("platos")!==null){
       return JSON.parse(localStorage.getItem("platos")!,(key: string, value: string | number | boolean) => {
         if (key == 'id' || key == 'price' || key == 'preparationMinutes' || key == 'healthScore') {
@@ -58,5 +63,35 @@ export class MenuService {
     }else{
       return [];
     }
-    }
+  }
+
+  public getPlato(idP:number):Dish{
+    this.platoVer=this.platos.find(element=>element.id==idP) || this.platoVer
+    return this.platoVer;
+  }
+
+  public precioTotal():number{
+    let suma=0;
+    this.platos.forEach((plato)=>{
+      suma+=plato.price;
+    })
+    return suma;
+  }
+
+  public tiempoTotal():number{
+    let tiempo=0;
+    this.platos.forEach((plato)=>{
+      tiempo+=plato.preparationMinutes;
+    })
+    return tiempo;
+  }
+
+  public HSTotal():number{
+    let HS=0;
+    this.platos.forEach((plato)=>{
+      HS+=plato.healthScore;
+    })
+    return HS;
+  }
+
 }

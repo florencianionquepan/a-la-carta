@@ -12,7 +12,7 @@
     <div class="form-signin">
         <form [formGroup]="form" (ngSubmit)="login($event)" novalidate>
           <img class="my-4 rounded" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOk8pdYQ26xXlIWBW7696krwtjMjniM4bOiw&usqp=CAU" alt="" height="57">
-          <h1 class="h3 mb-3 fw-normal">Log In</h1>
+          
       
           <div class="form-floating">
             <input type="email" formControlName="email" class="form-control" id="email" placeholder="name@example.com"
@@ -41,7 +41,7 @@
               Invalid password.
             </p>
           </div> 
-          <button class="w-100 btn btn-lg btn-outline-dark mt-4" type="submit" [disabled]="isLoading | async">Submit</button>
+          <button class="w-100 btn btn-lg btn-outline-dark mt-4" type="submit" [disabled]="isLoading | async">LogIn</button>
         </form>
     </div>
     <app-spinner></app-spinner>

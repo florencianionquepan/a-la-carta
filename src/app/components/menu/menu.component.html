@@ -10,9 +10,11 @@
     <div class="row">
         <div class="col-6 col-sm-3 col-md-11 mx-auto mb-2 tarjeta border border-secondary rounded p-2" 
             *ngFor="let plato of platosPedidos">
+            <a routerLink="/detail/{{plato.id}}" style='text-decoration:none; color:rgb(0, 0, 0)'>
                 <app-name [titulo]="plato.title"></app-name>
                 <app-image [imagen]="plato.image"></app-image>
                 <app-description [caracteristicas]="plato.vegan"></app-description>
+            </a>
                 <app-actions [plato]="plato" [id]="plato.id"></app-actions>
         </div>
         <div *ngIf="platosPedidos.length==0" class="alert alert-warning" role="alert">You didn't order any, yet!</div>

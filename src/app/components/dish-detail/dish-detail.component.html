@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="row justify-content-center align-items-center">
+    <div class="col-12 col-lg-10 col-xl-10 text-center text-lg-end mb-3">
+        <button class="btn btn-outline-dark" (click)="goBack()">Go back</button>
+    </div>
+    <div class="col-8 col-lg-4 col-xl-4 border border-secondary rounded p-3">
+        <app-name [titulo]="plato.title"></app-name>
+        <app-image [imagen]="plato.image"></app-image>
+        <h6 class="pt-3 display-6" style="font-size:1.2rem;">Price per serving: {{plato.price}}</h6>
+        <h6 class="display-6" style="font-size:1.2rem;">Time of preparation: {{plato.preparationMinutes}} minutes</h6>
+        <h6 class="display-6" style="font-size:1.2rem;">Health Score: {{plato.healthScore}}</h6>
+        <app-description [caracteristicas]="plato.vegan"></app-description>
+    </div>
+    <div class="col-8 col-lg-6 col-xl-6 m-3">
+        <h5 class="mt-2"> Percentage of total price </h5>
+        <div class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%':porcPrecio}" [attr.aria-valuenow]="porcPrecio" aria-valuemin="0" aria-valuemax="100" style="font-size:x-large; color:black">{{porcPrecio}}%</div>
+        </div>
+
+        <h5 class="mt-2"> Percentage of time preparation </h5>
+        <div class="progress">
+            <div class="progress-bar bg-warning" role="progressbar" [ngStyle]="{'width.%':porcTiempo}" [attr.aria-valuenow]="porcTiempo" aria-valuemin="0" aria-valuemax="100">{{porcTiempo}}%</div>
+        </div>
+
+        <h5 class="mt-2"> Percentage of healthScore </h5>
+        <div class="progress">
+            <div class="progress-bar bg-success" role="progressbar" [ngStyle]="{'width.%':porcHS}"[attr.aria-valuenow]="porcHS" aria-valuemin="0" aria-valuemax="100">{{porcHS}}%</div>
+        </div>
+
+    </div>
+</div>

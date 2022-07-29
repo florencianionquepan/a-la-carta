@@ -9,9 +9,9 @@ import { MenuService } from 'src/app/services/menu.service';
 })
 export class MenuComponent implements OnInit {
   public platosPedidos:Dish[];
-  public totalPrice:string='0';
-  public timePreparation:string='0';
-  public healthScore:string='0';
+  public totalPrice:string='';
+  public timePreparation:string='';
+  public healthScore:string='';
 
   constructor(private menuSvc:MenuService) { 
     this.platosPedidos=this.menuSvc.getPlatos();
@@ -26,33 +26,18 @@ export class MenuComponent implements OnInit {
   }
 
   private hacerCalculos():void{
-    this.totalPrice=this.calcularPrecio().toFixed(2);
+    this.totalPrice=this.menuSvc.precioTotal().toFixed(2);
     this.timePreparation=this.calcularTiempo().toFixed(2);
     this.healthScore=this.calcularHS().toFixed(2);
   }
 
-
-  private calcularPrecio():number{
-    let suma=0;
-    this.platosPedidos.forEach((plato)=>{
-      suma+=plato.price;
-    })
-    return suma;
-  }
-
   private calcularTiempo():number{
-    let tiempoTot=0;
-    this.platosPedidos.forEach((plato)=>{
-      tiempoTot+=plato.preparationMinutes;
-    })
-    return tiempoTot/this.platosPedidos.length;
+    let tiempoTotal=this.menuSvc.tiempoTotal();
+    return tiempoTotal/this.platosPedidos.length;
   }
 
   private calcularHS():number{
-    let healthS=0;
-    this.platosPedidos.forEach((plato)=>{
-      healthS+=plato.healthScore;
-    })
+    let healthS=this.menuSvc.HSTotal();
     return healthS/this.platosPedidos.length;
   }
 

@@ -1,3 +1,4 @@
 .tarjeta:hover {
 box-shadow: rgba(18, 97, 200, 0.4) 0px 2px 4px, rgba(109, 23, 145, 0.3) 0px 7px 13px -3px, rgba(223, 55, 235, 0.2) 0px -3px 0px inset;
+cursor: pointer;
 }
